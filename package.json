@@ -1,0 +1,15 @@
+{
+	"name": "sqbs-scraper",
+	"version": "1.0.0",
+	"description": "",
+	"main": "tournamentsScraper.js",
+	"dependencies": {
+		"cheerio": "^1.0.0-rc.2",
+		"commander": "^2.20.0",
+		"request": "^2.88.0",
+		"request-promise": "^4.2.2"
+	},
+	"devDependencies": {},
+	"author": "Jordan Brownstein",
+	"license": "ISC"
+}
