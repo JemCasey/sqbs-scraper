@@ -1,0 +1,16 @@
+block variables
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    link(rel="shortcut icon", href="/favicon.ico")
+    meta(name="viewport", content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    meta(name="theme-color", content="#000000")
+    title #{title} | SQBS Data Fixer
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
+    script(type='text/javascript', src='https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')
+    script(type='text/javascript', src='https://code.jquery.com/jquery-3.4.1.min.js')
+    script(type='text/javascript', src='js/index.js')
+  body
+    div#root
+      block layout-content

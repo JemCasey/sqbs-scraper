@@ -1,14 +1,38 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": [
+    "configurations": [    
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}/tournamentsScraper.js"
-        }
+            "name": "Scraper",
+            "program": "${workspaceRoot}/src/index.js",
+            "args": ["scrapeSearchQuery", "", "3", "09/29/2020", "10/20/2020"], 
+            //"args": ["fixPlayers"],
+            //"args": ["scrapeDifficulties"],
+            //"args": ["fixTeamSchools"],
+           // "args": ["scrapeStatsUrl", "https://hsquizbowl.org/db/tournaments/3300/stats/cottage_bowl_all_games/", "Cottage Bowl at Stanford", "02/27/2016"],
+            //"args": ["scrapeRange", "5024", "5024"],
+            // "args": ["loadNeg5Stats", "V1xImv8UgG"],
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node.cmd",
+            "sourceMaps": true,
+            "env": {
+              "BABEL_ENV": "debug"
+            }
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Data Fixer",
+            "program": "${workspaceRoot}/src/app.js",
+            "args": [], 
+            //"args": ["fixPlayers"],
+            //"args": ["scrapeDifficulties"],
+            //"args": ["scrapeRange", "6211", "6211"],
+            "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node.cmd",
+            "sourceMaps": true,
+            "env": {
+              "BABEL_ENV": "debug"
+            }
+        }                    
     ]
 }
