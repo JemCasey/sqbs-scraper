@@ -31,8 +31,13 @@ export default class PlayerService {
         WHERE   
             -- (player.name not like '% %'
             -- OR  LENGTH(player.name) - POSITION(' ' in player.name) <= 1) AND
-            player.last_modified > '2020-10-02'
+            player.last_modified > '2022-02-04'
         LIMIT ${this.offset}, 1;`);
+
+        if (!player || !player[0]) {
+            this.offset = 0;
+            return {};
+        }
 
         const playerDetails = await this.query(`
         SELECT  player.id as player_id, 

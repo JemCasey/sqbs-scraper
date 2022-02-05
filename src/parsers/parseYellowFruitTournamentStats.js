@@ -15,7 +15,7 @@ const mapPlayerProperty = (property) => {
 // YellowFruit's bonus lines aren't placed in html tags, which makes them a pain to traverse in cheerio.
 // this method gets a dictionary for those bonus lines
 const getBonusLines = (gamesHtml) => {
-	if ($(".ContentContainer").clone().children().remove().end().text().trim() === "")
+	if ($(".ContentContainer", gamesHtml).clone().children().remove().end().text().trim() === "")
 		return {};
 		
 	return $(".ContentContainer", gamesHtml)

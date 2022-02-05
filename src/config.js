@@ -33,4 +33,9 @@ export const commonNameDiminutives = [
     { full: 'Maximilian', fullRegex: /^Maximilian\b/, short: 'Max', shortRegex: /^Max\b/},
     { full: 'Elizabeth', fullRegex: /^Elizabeth\b/, short: 'Liz', shortRegex: /^Liz\b/},
     { full: 'Bradley', fullRegex: /^Bradley\b/, short: 'Brad', shortRegex: /^Brad\b/},
+    { full: 'Joseph', fullRegex: /^Joseph\b/, short: 'Joe', shortRegex: /^Joe\b/},
+    { full: 'Alexandra', fullRegex: /^Alexandra\b/, short: 'Alex', shortRegex: /^Alex\b/},
+    { full: 'Douglas', fullRegex: /^Douglas\b/, short: 'Doug', shortRegex: /^Doug\b/},
+    { full: 'Jennifer', fullRegex: /^Jennifer\b/, short: 'Jen', shortRegex: /^Jen\b/} ,
+    { full: 'Nathaniel', fullRegex: /^Nathaniel\b/, short: 'Nate', shortRegex: /^Nate\b/} 
 ];

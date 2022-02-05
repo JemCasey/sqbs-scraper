@@ -5,6 +5,7 @@ module.exports = {
             name VARCHAR(250) NOT NULL,
             difficulty_id INT(6) UNSIGNED NULL,
             url VARCHAR(250),
+            is_subject BIT NOT NULL DEFAULT 0,
             last_modified TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
             INDEX question_set_difficulty_index (difficulty_id),

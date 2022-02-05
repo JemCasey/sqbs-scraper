@@ -22,6 +22,7 @@ export default class Scraper {
 
 	async scrapeSearchQuery(searchTerm, level, startDate, endDate) {
 		var tournamentIds = await parseTournamentSearchResults(searchTerm, level, startDate, endDate);
+		//var tournamentIds = [743,750,763,725,612,398,332,477,767,444,724,382,458,475,329,726,327,761,397,326,457,722,473,474,456,395,553,416,471,414,490,370,610,618,443,708,469,304,354,379,691,442,434,455,394,286,285,412,411,366,539,584,283,282,321,377,714,732,756,300,392,441,728,410,514,506,507,542,513,518,583,672,362,593,360,424,425,359,423,408,512,674,699,535,314,666,422,617,280,406,665,454,651,516,298,567,608,680,686,438,758,279,489,510,716,487,488,404,589,374,633,277,588,650,402,419,515,271,296,345,685,689,446,715,461,462,509,373,311,580,616,673,500,765,579,632,386,276,565,401,499,400,532,577,480,508,417,357,275,530,586,737,107,893,917,1459,971,982,1019,1020,1121,1142,1151,1159,1744,1254,1394,1417,1881,2195,2867,2901,2894,2903,2905,3296,3459,3460,3545,3695,3784,3792,3931,4068,4296,4240,4399,4965,5642,4977,4990,4959,5064,5092,5093,5126,5843,5796,5438,5469,5613,5797,5727,5782,5783,5799,5837,5847,5865,6003,6094,6097,6135,6170,6358,6368,6487,6396,6472,6486,6562,6589,6601,6697,6699];
 		var blacklist = await this.tournamentService.getBlacklistedTournamentUrls();
 
 		for (var tournamentId of tournamentIds) {
@@ -57,45 +58,12 @@ export default class Scraper {
 		// };
 
 		var tournaments = [
-			// { tournament_date: new Date("07/20/2013"), type: "Open", name: "Chicago Open 2013", url: "https://hsquizbowl.org/db/tournaments/1545/stats/chicago_open_2013_all_games/", host: "The University of Chicago", address: "The University of Chicago, Chicago, Illinois", stats_urls: ["https://hsquizbowl.org/db/tournaments/1545/stats/chicago_open_2013_all_games/"] },
-			// { tournament_date: new Date("07/21/2013"), type: "Open", name: "Urgent Call for Unity", url: "https://hsquizbowl.org/db/tournaments/1545/stats/history_side_event_-_final/", host: "The University of Chicago", address: "The University of Chicago, Chicago, Illinois", stats_urls: ["https://hsquizbowl.org/db/tournaments/1545/stats/history_side_event_-_final/"] },
-			// { tournament_date: new Date("08/06/2016"), type: "Open", name: "NASAT at Berkeley", url: "https://hsquizbowl.org/db/tournaments/3778/stats/nasat/", host: "UC Berkeley", address: "Barrows Hall, Berkeley, California", stats_urls: ["https://hsquizbowl.org/db/tournaments/3778/stats/nasat/"] },
-			// { tournament_date: new Date("08/06/2016"), type: "Open", name: "Listory at Berkeley", url: "https://hsquizbowl.org/db/tournaments/3778/stats/listory/", host: "UC Berkeley", address: "Barrows Hall, Berkeley, California", stats_urls: ["https://hsquizbowl.org/db/tournaments/3778/stats/listory/"] },
-			// { tournament_date: new Date("08/06/2016"), type: "Open", name: "ARTSEE at Berkeley", url: "https://hsquizbowl.org/db/tournaments/3778/stats/artsee/", host: "UC Berkeley", address: "Barrows Hall, Berkeley, California", stats_urls: ["https://hsquizbowl.org/db/tournaments/3778/stats/artsee/"] },
-			// { tournament_date: new Date("08/06/2016"), type: "Open", name: "A Culture of Improvement at Berkeley", url: "https://hsquizbowl.org/db/tournaments/3778/stats/a_culture_of_improvement/", host: "UC Berkeley", address: "Barrows Hall, Berkeley, California", stats_urls: ["https://hsquizbowl.org/db/tournaments/3778/stats/a_culture_of_improvement/"] },
-			// { tournament_date: new Date("08/06/2016"), type: "Open", name: "Listory at VCU", url: "https://hsquizbowl.org/db/tournaments/3810/stats/listory/", host: "VCU", address: "900 W Main St, Richmond, Virginia 23220", stats_urls: ["https://hsquizbowl.org/db/tournaments/3810/stats/listory/"] },
-			// { tournament_date: new Date("08/06/2016"), type: "Open", name: "ARTSEE at VCU", url: "https://hsquizbowl.org/db/tournaments/3810/stats/artsee/", host: "VCU", address: "900 W Main St, Richmond, Virginia 23220", stats_urls: ["https://hsquizbowl.org/db/tournaments/3810/stats/artsee/"] },
-			// { tournament_date: new Date("08/06/2016"), type: "Open", name: "A Culture of Improvement at VCU", url: "https://hsquizbowl.org/db/tournaments/3810/stats/culture_of_improvement/", host: "VCU", address: "900 W Main St, Richmond, Virginia 23220", stats_urls: ["https://hsquizbowl.org/db/tournaments/3810/stats/culture_of_improvement/"] },
-			// { tournament_date: new Date("10/23/2016"), type: "Open", name: "ARTSEE at Cambridge", url: "https://hsquizbowl.org/db/tournaments/4029/stats/artsee/", host: "Clare Memorial Court, Cambridge", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/4029/stats/artsee/"] },
-			// { tournament_date: new Date("10/23/2016"), type: "Open", name: "Listory at Cambridge", url: "https://hsquizbowl.org/db/tournaments/4029/stats/listory/", host: "Clare Memorial Court, Cambridge", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/4029/stats/listory/"] },
-			// { tournament_date: new Date("08/05/2017"), type: "Open", name: "GEODUCK at VCU", url: "https://hsquizbowl.org/db/tournaments/4489/stats/geoduck/", host: "VCU", address: "900 W Main St, Richmond, Virginia 23220", stats_urls: ["https://hsquizbowl.org/db/tournaments/4489/stats/geoduck/"] },
-			// { tournament_date: new Date("08/05/2017"), type: "Open", name: "XENOPHON at VCU", url: "https://hsquizbowl.org/db/tournaments/4489/stats/xenophon/", host: "VCU", address: "900 W Main St, Richmond, Virginia 23220", stats_urls: ["https://hsquizbowl.org/db/tournaments/4489/stats/xenophon/"] },
-			// { tournament_date: new Date("08/05/2017"), type: "Open", name: "There Will Be Stock Clues at VCU", url: "https://hsquizbowl.org/db/tournaments/4489/stats/stock_clues/", host: "VCU", address: "900 W Main St, Richmond, Virginia 23220", stats_urls: ["https://hsquizbowl.org/db/tournaments/4489/stats/stock_clues/"] },
-			// { tournament_date: new Date("08/19/2017"), type: "Open", name: "GEODUCK at Michigan", url: "https://hsquizbowl.org/db/tournaments/4509/stats/geoduck_-_all_games/", host: "University of Michigan", address: "435 South State Street, Ann Arbor, Michigan 48104", stats_urls: ["https://hsquizbowl.org/db/tournaments/4509/stats/geoduck_-_all_games/"] },
-			// { tournament_date: new Date("08/19/2017"), type: "Open", name: "Thought Monstrosity at Michigan", url: "https://hsquizbowl.org/db/tournaments/4509/stats/thought_monstrosity_-_combined/", host: "University of Michigan", address: "435 South State Street, Ann Arbor, Michigan 48104", stats_urls: ["https://hsquizbowl.org/db/tournaments/4509/stats/thought_monstrosity_-_combined/"] },
-			// { tournament_date: new Date("08/19/2017"), type: "Open", name: "There Will Be Stock Clues at Michigan", url: "https://hsquizbowl.org/db/tournaments/4509/stats/stock_clues_-_all_games/", host: "University of Michigan", address: "435 South State Street, Ann Arbor, Michigan 48104", stats_urls: ["https://hsquizbowl.org/db/tournaments/4509/stats/stock_clues_-_all_games/"] },
-			// { tournament_date: new Date("10/15/2017"), type: "Open", name: "GEODUCK at Cambridge", url: "https://hsquizbowl.org/db/tournaments/4665/stats/geoduck/", host: "Cambridge", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/4665/stats/geoduck/"] },
-			// { tournament_date: new Date("10/15/2017"), type: "Open", name: "There Will Be Stock Clues at Cambridge", url: "https://hsquizbowl.org/db/tournaments/4665/stats/stock_clues/", host: "Cambridge", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/4665/stats/stock_clues/"] },
-			// { tournament_date: new Date('07/28/2018'), type: "Open", name: "The Human Use of Human Beings at VCU", url: "https://hsquizbowl.org/db/tournaments/5131/stats/human_use_of_human_beings/", host: "VCU", address: "900 W Main St, Richmond, Virginia 23220", stats_urls: ["https://hsquizbowl.org/db/tournaments/5131/stats/human_use_of_human_beings/"] },
-			// { tournament_date: new Date('08/04/2018'), type: "Open", name: "NASAT at Stanford", url: "https://hsquizbowl.org/db/tournaments/5124/stats/nasat/", host: "Stanford University", address: "94305", stats_urls: ["https://hsquizbowl.org/db/tournaments/5124/stats/nasat/"] },
-			// { tournament_date: new Date('08/04/2018'), type: "Open", name: "OCTAVIAN at Stanford", url: "https://hsquizbowl.org/db/tournaments/5124/stats/octavian/", host: "Stanford University", address: "94305", stats_urls: ["https://hsquizbowl.org/db/tournaments/5124/stats/octavian/"] },
-			// { tournament_date: new Date('08/04/2018'), type: "Open", name: "WORLDSTAR at Stanford", url: "https://hsquizbowl.org/db/tournaments/5124/stats/worldstar/", host: "Stanford University", address: "94305", stats_urls: ["https://hsquizbowl.org/db/tournaments/5124/stats/worldstar/"] },
-			// { tournament_date: new Date('08/04/2018'), type: "Open", name: "The Human Use of Human Beings at Stanford", url: "https://hsquizbowl.org/db/tournaments/5124/stats/the_human_use_of_human_beings/", host: "Stanford University", address: "94305", stats_urls: ["https://hsquizbowl.org/db/tournaments/5124/stats/the_human_use_of_human_beings/"] },
-			// { tournament_date: new Date('08/04/2018'), type: "Open", name: "WORLDSTAR at MIT", url: "https://hsquizbowl.org/db/tournaments/5139/stats/worldstar/", host: "Massachusetts Institute of Technology", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/5139/stats/worldstar/"] },
-			// { tournament_date: new Date('08/04/2018'), type: "Open", name: "Words and Objects at MIT", url: "https://hsquizbowl.org/db/tournaments/5139/stats/words_and_objects/", host: "Massachusetts Institute of Technology", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/5139/stats/words_and_objects/"] },
-			// { tournament_date: new Date("08/19/2017"), type: "Open", name: "NASAT at Carleton", url: "https://hsquizbowl.org/db/tournaments/4506/stats/nasat/", host: "Carleton University", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/4506/stats/nasat/"] },
-			// { tournament_date: new Date("08/19/2017"), type: "Open", name: "GEODUCK at Carleton", url: "https://hsquizbowl.org/db/tournaments/4506/stats/geoduck/", host: "Carleton University", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/4506/stats/geoduck/"] },
-			// { tournament_date: new Date("04/02/2016"), type: "College", name: "2016 MYSTERIUM at Northwestern", url: "https://www.qbwiki.com/statistics/2016-mysterium-northwestern/2016-mysterium-northwestern_", host: "Northwestern University", address: "", stats_urls: ["https://www.qbwiki.com/statistics/2016-mysterium-northwestern/2016-mysterium-northwestern_"] },
-			// { tournament_date: new Date("02/09/2013"), type: "College", name: "2013 Region 8 Sectional Championship - Division II", url: "https://www.qbwiki.com/statistics/2013-sct-uic/division-ii_", host: "University of Illinois at Chicago", address: "", stats_urls: ["https://www.qbwiki.com/statistics/2013-sct-uic/division-ii_"] },
-			// { tournament_date: new Date("11/05/2016"), type: "College", name: "2016 ACF Fall at Northwestern", url: "https://www.qbwiki.com/statistics/2016-acf-fall-northwestern/prelim_", host: "Northwestern University", address: "", stats_urls: ["https://www.qbwiki.com/statistics/2016-acf-fall-northwestern/prelim_"] },
-			// { tournament_date: new Date("01/30/2016"), type: "College", name: "2016 ACF Regionals at UChicago", url: "https://www.qbwiki.com/statistics/2016-acf-regionals-chicago/combined_", host: "UChicago", address: "", stats_urls: ["https://www.qbwiki.com/statistics/2016-acf-regionals-chicago/combined_"] },
-			// { tournament_date: new Date("03/08/2014"), type: "Open", name: "2014 Cane Ridge Revival at UChicago", url: "https://www.qbwiki.com/statistics/2014-cane-ridge-revival/2014-cane-ridge-revival_", host: "UChicago", address: "", stats_urls: ["https://www.qbwiki.com/statistics/2014-cane-ridge-revival/2014-cane-ridge-revival_"] },
-			// { tournament_date: new Date("02/19/2011"), type: "Open", name: "2011 Sack of Antwerp at UChicago", url: "https://www.qbwiki.com/uchicago/2011_SackofAntwerp/overall_", host: "UChicago", address: "", stats_urls: ["https://www.qbwiki.com/uchicago/2011_SackofAntwerp/overall_"] },
-			// { tournament_date: new Date("09/25/2010"), type: "College", name: "2010 ACF Novice", url: "https://www.qbwiki.com/uchicago/2010_ACF_Novice/overall_", host: "WUSTL", address: "", stats_urls: ["https://www.qbwiki.com/uchicago/2010_ACF_Novice/overall_"] },
-			// { tournament_date: new Date("09/24/2011"), type: "College", name: "2011 Early Autumn Collegiate Novice @ UChicago", url: "https://www.qbwiki.com/uchicago/2011_EACNT/2011_EACNT_UChicago_", host: "UChicago", address: "", stats_urls: ["https://www.qbwiki.com/uchicago/2011_EACNT/2011_EACNT_UChicago_"] },
-			// { tournament_date: new Date("02/04/2012"), type: "College", name: "2012 NAQT SCT at UChicago - Division II", url: "https://www.qbwiki.com/uchicago/2012_SCT/2012_SCT_UChicago_DII_", host: "UChicago", address: "", stats_urls: ["https://www.qbwiki.com/uchicago/2012_SCT/2012_SCT_UChicago_DII_"] },
-			// { tournament_date: new Date("07/18/2015"), type: "Open", name: "2015 Chicago Open", url: "https://www.qbwiki.com/statistics/2015-chicago-open/2015_Chicago_Open_", host: "UChicago", address: "", stats_urls: ["https://www.qbwiki.com/statistics/2015-chicago-open/2015_Chicago_Open_"] }
-			{ tournament_date: new Date("01/31/2015"), type: "Open", name: "Oxford Open 2015", url: "https://hsquizbowl.org/db/tournaments/2355", host: "Oxford", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/2355/stats/including_final/"]}
+			{ tournament_date: new Date("07/23/2017"), type: "Open", name: "2017 Jordaens @ Canada", url: "https://hsquizbowl.org/db/tournaments/4458", host: "Canada", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/4458/stats/jordaens_all_games/"]},
+			{ tournament_date: new Date("07/23/2017"), type: "Open", name: "2017 Naveed Bork @ Canada", url: "https://hsquizbowl.org/db/tournaments/4458", host: "Canada", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/4458/stats/naveed_bork_combined/"]},
+			{ tournament_date: new Date("08/25/2017"), type: "Open", name: "2017 WORLDSTAR @ Carleton Side Event Weekend 2K18", url: "https://hsquizbowl.org/db/tournaments/5204", host: "Carleton University", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/5204/stats/worldstar/"]},
+			{ tournament_date: new Date("10/18/2014"), type: "College", name: "2014 Penn Bowl at McMaster and Toronto", url: "https://hsquizbowl.org/db/tournaments/2557", host: "McMaster and Toronto", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/2557/stats/penn_bowl_all_games/"]},
+			{ tournament_date: new Date("10/18/2014"), type: "College", name: "2014 Padawan at McMaster and Toronto", url: "https://hsquizbowl.org/db/tournaments/2557", host: "McMaster and Toronto", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/2557/stats/padawan/"]},
+			{ tournament_date: new Date("08/20/2016"), type: "Open", name: "2016 Listory at Carleton", url: "https://hsquizbowl.org/db/tournaments/3858", host: "Carleton University", address: "", stats_urls: ["https://hsquizbowl.org/db/tournaments/3858/stats/listory_prelims/"]}
 		]
 
 		for (var tournament of tournaments) {
@@ -109,7 +77,7 @@ export default class Scraper {
 				}
 			} catch (message) {
 				console.log(message);
-				await this.errorService.save({ tournament_slug: tournament.url, message });
+				await this.errorService.save({ tournament_slug: tournament.url.split('/').pop(), message });
 			}			
 		}
 
@@ -137,15 +105,15 @@ export default class Scraper {
 	async scrapeRange(firstId, lastId) {
 		let i = firstId, results = [];
 		var levels = ["College", "Open"];
-		let is = [6510,6539,6551,6546,6545,6585];
-		for (i of is) {
-		//for (i = firstId; i <= lastId; i++) {
+		//let is = [6510,6539,6551,6546,6545,6585];
+		//for (i of is) {
+		for (i = firstId; i <= lastId; i++) {
 			try {
 				var tournament = await parseTournamentPage(i, levels);
 
 				if (tournament) {
 					results.push(tournament);
-					await this.tournamentService.save(tournament);
+					//await this.tournamentService.save(tournament);
 				}
 			} catch (message) {
 				console.log(message);

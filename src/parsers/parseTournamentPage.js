@@ -39,7 +39,8 @@ const parseTournamentPage = async function (tournamentId, levels) {
 
 		var tournamentName = $('.MainColumn h2', html).first().text();
 		var subtitle = $('.MainColumn h5', html).text();
-		var tournamentType = subtitle.match(/(.*) tournament on .*/)[1];
+		var tournamentTypeMatch = subtitle.match(/(.*) tournament on .*/);
+		var tournamentType =  tournamentTypeMatch ? tournamentTypeMatch[1] : '';
 		var tournamentDateStr = removeEndDate(subtitle.match(/tournament on (.+)/) ? subtitle.match(/tournament on (.+)/)[1] : subtitle);
 		var tournamentProperties = $('p > span[class="FieldName"]', html).parent();
 		var host = tournamentProperties.has('span:contains("Host")');

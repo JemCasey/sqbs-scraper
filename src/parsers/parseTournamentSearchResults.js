@@ -11,10 +11,6 @@ const parseTournamentSearchResults = async function (searchTerm, level, startDat
 	for (i = 1; i <= pageCount; i ++) {
 		var html = await rp(`${BASE_URL}tournaments/search/${i}/?name=${searchTerm}&level=${level}${dateQuery}`);
 		var lis = $('.TournamentResults li', html);
-		var levels = [];
-		var levelsRegex = '';
-		
-		levelsRegex = new RegExp(levels.join("|"));
 	
 		lis.each(function (_, v) {
 			tournamentIds.push($(v).find('a').attr('href').split('/')[1]);
