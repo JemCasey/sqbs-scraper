@@ -18,7 +18,7 @@ app.get("/", (_, res) => {
 
 app.get("/player", async (_, res) => {
   res.json({
-    ...(await playerService.getRandomUnmatchedPlayer())
+    ...(await playerService.getNewPlayers())
   })
 });
 
